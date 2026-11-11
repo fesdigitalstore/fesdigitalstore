@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="F.E.S Digital Store — découvrez notre sélection de chaussures et commandez directement sur WhatsApp.">
+  <title>F.E.S Digital Store | Chaussures & Style</title>
+  <style>
+    :root{--ink:#111;--gold:#d7ad55;--cream:#f7f5f0;--muted:#777;--white:#fff}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
+    a{color:inherit;text-decoration:none} button{font:inherit}
+    .topbar{background:#101010;color:#eee;text-align:center;padding:9px 12px;font-size:12px;letter-spacing:.12em}
+    header{background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
+    .nav{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:900;letter-spacing:.08em;font-size:20px}.brand span{color:#b48732}
+    .navlinks{display:flex;gap:24px;font-size:13px;font-weight:700}.navlinks a:hover{color:#a77b2b}
+    .hero{background:linear-gradient(115deg,rgba(10,10,10,.92),rgba(10,10,10,.54)),url('https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=1800&q=85') center/cover;min-height:510px;color:#fff;display:flex;align-items:center}
+    .hero-inner{max-width:1180px;width:100%;margin:auto;padding:75px 22px}
+    .eyebrow{color:#e4c47e;text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:700}
+    h1{font-size:clamp(38px,7vw,72px);line-height:1.02;max-width:650px;margin:18px 0}
+    .hero p{max-width:470px;color:#e3e3e3;line-height:1.7;font-size:16px}
+    .btn{display:inline-block;background:var(--gold);color:#17130b;padding:14px 22px;border-radius:3px;font-weight:800;font-size:13px;border:0;cursor:pointer}
+    .btn:hover{filter:brightness(1.07)} .btn-dark{background:#111;color:#fff}
+    .section{max-width:1180px;margin:auto;padding:72px 22px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+    .section h2{font-size:clamp(26px,4vw,38px);margin:8px 0 0}
+    .sub{color:var(--muted);font-size:14px;line-height:1.6}
+    .categories{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .category{min-height:190px;padding:28px;display:flex;flex-direction:column;justify-content:end;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.75),rgba(0,0,0,.08)),url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80') center/cover}
+    .category.women{background-image:linear-gradient(0deg,rgba(0,0,0,.75),rgba(0,0,0,.08)),url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=80')}
+    .category h3{font-size:25px;margin:0 0 7px}.category p{margin:0;color:#eee;font-size:13px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 25px}
+    .filter{padding:9px 15px;border:1px solid #ddd;background:#fff;border-radius:30px;font-size:12px;cursor:pointer}
+    .filter.active,.filter:hover{background:#111;color:#fff;border-color:#111}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .product{border:1px solid #eee;background:#fff;min-width:0}
+    .product-img{height:235px;background:#f3f1ec;overflow:hidden;position:relative}
+    .product-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+    .product:hover .product-img img{transform:scale(1.05)}
+    .tag{position:absolute;top:12px;left:12px;background:#fff;padding:7px 9px;font-size:10px;font-weight:800;letter-spacing:.08em}
+    .product-info{padding:16px}.product-info h3{font-size:16px;margin:0 0 7px}
+    .product-info p{font-size:12px;color:var(--muted);margin:0 0 14px}
+    .product-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .price{font-weight:800;font-size:13px}.order{background:#111;color:#fff;border:0;padding:10px 12px;font-size:11px;font-weight:700;cursor:pointer}
+    .order:hover{background:#a77b2b}
+    .how{background:var(--cream)}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:30px}
+    .step{background:#fff;padding:24px;border:1px solid #ece8df}
+    .num{font-size:28px;color:#bd913f;font-weight:900}.step h3{margin:12px 0 8px;font-size:16px}.step p{font-size:13px;line-height:1.65;color:#666;margin:0}
+    .contact{background:#111;color:#fff;text-align:center;padding:65px 20px}
+    .contact p{color:#ccc;max-width:520px;margin:12px auto 24px;line-height:1.7}
+    footer{background:#090909;color:#aaa;text-align:center;padding:22px;font-size:11px}
+    .wa-float{position:fixed;right:18px;bottom:18px;z-index:20;background:#1fbf64;color:#fff;padding:14px 17px;border-radius:40px;font-size:12px;font-weight:800;box-shadow:0 5px 18px #0003}
+    .empty{display:none;padding:30px;text-align:center;color:#777;grid-column:1/-1}
+    @media(max-width:760px){.nav{padding:14px 16px}.navlinks{gap:12px;font-size:11px}.navlinks a:nth-child(2){display:none}.hero{min-height:440px}.hero-inner{padding:60px 20px}.section{padding:52px 17px}.products{grid-template-columns:repeat(2,1fr);gap:12px}.product-img{height:175px}.product-info{padding:12px}.product-info h3{font-size:14px}.product-bottom{align-items:flex-start;flex-direction:column}.order{width:100%}.steps{grid-template-columns:1fr;gap:12px}.category{min-height:150px;padding:18px}.category h3{font-size:20px}}
+    @media(max-width:420px){.brand{font-size:16px}.navlinks{gap:9px}.products{grid-template-columns:1fr 1fr}.product-img{height:145px}.product-info p{font-size:11px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">L'ÉLÉGANCE À CHAQUE PAS · COMMANDE SIMPLE SUR WHATSAPP</div>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#accueil">F.E.S <span>DIGITAL STORE</span></a>
+      <div class="navlinks"><a href="#accueil">Accueil</a><a href="#categories">Catégories</a><a href="#boutique">Boutique</a><a href="#contact">Contact</a></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-inner">
+        <div class="eyebrow">F.E.S Digital Store</div>
+        <h1>Votre style commence par vos chaussures.</h1>
+        <p>Découvrez une sélection de chaussures pour affirmer votre style au quotidien. Choisissez votre modèle et commandez facilement sur WhatsApp.</p>
+        <a class="btn" href="#boutique">DÉCOUVRIR LA BOUTIQUE</a>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="section-head"><div><div class="eyebrow">Trouvez votre style</div><h2>Nos catégories</h2></div><p class="sub">Des modèles pour chaque occasion.</p></div>
+      <div class="categories">
+        <a class="category" href="#boutique" onclick="setFilter('homme')"><h3>Homme</h3><p>Style, confort et caractère</p></a>
+        <a class="category women" href="#boutique" onclick="setFilter('femme')"><h3>Femme</h3><p>Élégance à chaque pas</p></a>
+      </div>
+    </section>
+
+    <section class="section" id="boutique">
+      <div class="section-head"><div><div class="eyebrow">La sélection F.E.S</div><h2>Notre boutique</h2></div><p class="sub">Prix et disponibilités confirmés sur WhatsApp.</p></div>
+      <div class="filters">
+        <button class="filter active" onclick="setFilter('tout')">Tout voir</button>
+        <button class="filter" onclick="setFilter('homme')">Homme</button>
+        <button class="filter" onclick="setFilter('femme')">Femme</button>
+        <button class="filter" onclick="setFilter('sport')">Sport</button>
+        <button class="filter" onclick="setFilter('mixte')">Mixte</button>
+      </div>
+      <div class="products" id="products"></div>
+    </section>
+
+    <section class="how">
+      <div class="section">
+        <div class="eyebrow">Simple et rapide</div><h2>Comment commander ?</h2>
+        <div class="steps">
+          <div class="step"><div class="num">01</div><h3>Choisissez votre modèle</h3><p>Parcourez les chaussures et repérez le modèle qui vous plaît. Les prix et pointures sont communiqués en privé.</p></div>
+          <div class="step"><div class="num">02</div><h3>Envoyez votre demande</h3><p>Cliquez sur « Commander » et indiquez votre pointure et la quantité sur WhatsApp.</p></div>
+          <div class="step"><div class="num">03</div><h3>Confirmez votre commande</h3><p>La boutique vous confirme le prix, les pointures disponibles et les modalités de livraison à Cotonou ou Abomey-Calavi.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="eyebrow">Une question ?</div><h2>Parlons de votre prochaine paire.</h2>
+      <p>Écrivez-nous sur WhatsApp pour connaître les prix et les pointures disponibles. Livraison à Cotonou et Abomey-Calavi.</p>
+      <a class="btn" id="contactBtn" href="#" target="_blank" rel="noopener">CONTACTER LA BOUTIQUE</a>
+    </section>
+  </main>
+  <footer>© <span id="year"></span> F.E.S Digital Store. Tous droits réservés.</footer>
+  <a class="wa-float" id="floatBtn" href="#" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+  // CONFIGURATION : remplacez ce numéro si nécessaire.
+  // Format international sans +, espace ni zéro initial local.
+  const WHATSAPP_NUMBER = "2290167914716";
+
+  // EXEMPLES DE PRODUITS : remplacez les noms, photos et catégories par votre stock réel.
+  // Pour ajouter un produit, dupliquez une ligne dans cette liste.
+  const products = [
+    {name:'Nike Air Force gris & noir', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-01.jpg", tag:'TENDANCE'},
+    {name:'Sneaker beige & blanc', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-02.jpg", tag:'ÉLÉGANCE'},
+    {name:'Puma noir & blanc', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-03.jpg", tag:'URBAN'},
+    {name:'Air Max bleu glacier', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-04.jpg", tag:'NOUVEAUTÉ'},
+    {name:'Sneaker running argentée', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-05.jpg", tag:'SPORT'},
+    {name:'Air Max noir & motifs', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-06.jpg", tag:'STYLE'},
+    {name:'Air Max noir, kaki & orange', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-07.jpg", tag:'TENDANCE'},
+    {name:'Sneaker noire', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-08.jpg", tag:'CLASSIQUE'},
+    {name:'Air Force noire graphique', category:"mixte", type:"sport", price:"Prix et pointures disponibles en privé", image:"images/sneaker-09.jpg", tag:'ORIGINAL'}
+  ];
+
+  function orderLink(productName){
+    const message = `Bonjour F.E.S Digital Store ! Je souhaite avoir le prix et les pointures disponibles pour le modèle : ${productName}. Quelles sont vos disponibilités et les modalités de livraison à Cotonou ou Abomey-Calavi ?`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  }
+  function render(list){
+    const root = document.getElementById("products");
+    root.innerHTML = "";
+    list.forEach(p => {
+      const card = document.createElement("article");
+      card.className = "product";
+      card.innerHTML = `<div class="product-img"><img loading="lazy" src="${p.image}" alt="${p.name}"><span class="tag">${p.tag}</span></div>
+        <div class="product-info"><h3>${p.name}</h3><p>${p.category === "mixte" ? "Collection mixte" : (p.category === "homme" ? "Collection homme" : "Collection femme")}</p>
+        <div class="product-bottom"><span class="price">${p.price}</span><button class="order" type="button">COMMANDER</button></div></div>`;
+      card.querySelector("button").addEventListener("click", () => window.open(orderLink(p.name), "_blank"));
+      root.appendChild(card);
+    });
+    if(!list.length) root.innerHTML = '<div class="empty">Aucun produit dans cette catégorie.</div>';
+  }
+  function setFilter(category){
+    document.querySelectorAll(".filter").forEach(b => b.classList.toggle("active", b.textContent.toLowerCase().includes(category) || (category==="tout" && b.textContent==="Tout voir")));
+    const filtered = category==="tout" ? products : products.filter(p => p.category===category || p.type===category);
+    render(filtered);
+  }
+  const contactUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Bonjour F.E.S Digital Store, je souhaite connaître vos prix et pointures disponibles. Livrez-vous à Cotonou ou Abomey-Calavi ?")}`;
+  document.getElementById("contactBtn").href = contactUrl;
+  document.getElementById("floatBtn").href = contactUrl;
+  document.getElementById("year").textContent = new Date().getFullYear();
+  render(products);
+</script>
+</body>
+</html>

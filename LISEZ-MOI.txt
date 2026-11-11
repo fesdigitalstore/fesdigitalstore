@@ -1,0 +1,36 @@
+F.E.S DIGITAL STORE — VERSION AVEC VOS PHOTOS
+
+CONTENU
+- index.html : page de la boutique.
+- images/ : les 9 photos de chaussures fournies, intégrées au catalogue.
+
+CONFIGURATION WHATSAPP
+Le site est prérempli avec le numéro communiqué précédemment : 2290167914716.
+Dans index.html, cherchez WHATSAPP_NUMBER pour le vérifier ou le modifier.
+Format attendu : indicatif pays + numéro, sans +, espace ni zéro initial local.
+
+PERSONNALISATION DES PRODUITS
+Les 9 chaussures sont intégrées comme modèles de démonstration.
+Les prix restent « Prix sur demande » car aucun tarif n'a encore été communiqué.
+Dans index.html, cherchez `const products` pour modifier les noms, prix, catégories et photos.
+Les catégories sont actuellement « mixte ».
+
+PUBLICATION GRATUITE AVEC GITHUB PAGES
+1. Décompressez le ZIP.
+2. Créez un dépôt public nommé fes-digital-store sur https://github.com.
+3. Téléversez index.html ET le dossier images/ (avec les 9 fichiers JPG).
+4. Ouvrez Settings > Pages.
+5. Choisissez Deploy from a branch, branche main, dossier /(root), puis Save.
+6. Attendez la publication et ouvrez l'adresse fournie par GitHub Pages.
+
+IMPORTANT
+- Ne téléversez pas uniquement index.html : les photos doivent rester dans le dossier images/.
+- Le site transmet les commandes à WhatsApp ; il n'encaisse pas les paiements en ligne.
+- Confirmez disponibilité, prix, pointures et livraison avec chaque client.
+- Les noms des modèles sont descriptifs ; ils ne garantissent pas l'authenticité d'une marque.
+
+
+MISE À JOUR COMMERCIALE
+- Les prix ne sont pas affichés publiquement : ils sont communiqués en privé sur WhatsApp.
+- Les pointures ne sont pas affichées : le client les demande sur WhatsApp.
+- Zone de livraison annoncée : Cotonou et Abomey-Calavi.
